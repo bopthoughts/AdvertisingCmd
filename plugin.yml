@@ -1,0 +1,5 @@
+name: AdvertisingJail
+main: da123rrell\AdvertisingJail\AdvertisingJail
+version: 1.2.0
+api: 1.0.0
+depend: [Jail]

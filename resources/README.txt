@@ -1,0 +1,1 @@
+This plugin is based on DarkN3ss AdvertisingKick but edited by da123rrell with alot of help from Vaivez66
