@@ -5,10 +5,20 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\command\ConsoleCommandSender;
+use pocketmine\utlis\Config;
+
+
 
 class EventListener implements Listener{
     
     private $plugin;
+    
+     public function onEnable(){
+     	 @mkdir($this->getDataFolder());
+     	 $this->config = new Config ($this->getDataFolder() . "config.yml" , Config::YAML, array()); 
+     	 $this->config->set("cmd");
+     	 $this->config->get("cmd"); 
+     }
 
     public function __construct(AdvertisingJail $plugin){
             $this->plugin = $plugin;
