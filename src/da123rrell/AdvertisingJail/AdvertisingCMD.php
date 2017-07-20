@@ -1,6 +1,6 @@
 <?php
 
-namespace da123rrell\AdvertisingCMD;
+namespace da123rrell\AdvertisingJail;
 
 use pocketmine\Player;
 use pocketmine\utils\Config;
