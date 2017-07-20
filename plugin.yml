@@ -1,5 +1,5 @@
 name: AdvertisingJail
 main: da123rrell\AdvertisingJail\AdvertisingCMD
-version: 1.2.0
+version: 0.1
 api: [1.0.0, 2.0.0, 3.0.0, 4.0.0, 3.0.0-ALPHA5, 3.0.0-ALPHA6, 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9]
 depend: [Jail]
