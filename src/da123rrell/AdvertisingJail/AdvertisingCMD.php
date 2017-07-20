@@ -1,6 +1,6 @@
 <?php
 
-namespace da123rrell\AdvertisingJail;
+namespace da123rrell\AdvertisingCMD;
 
 use pocketmine\Player;
 use pocketmine\utils\Config;
@@ -13,12 +13,12 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\utils\Config;
 
-class AdvertisingJail extends PluginBase implements Listener{
+class AdvertisingCMD extends PluginBase implements Listener{
 
     private $webEndings = array(".net",".com",".co",".org",".info",".tk");
 
     public function onEnable(){
-        $this->getLogger()->info("AdvertisingJail Starterd");
+        $this->getLogger()->info("AdvertisingCMD Starterd");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         @mkdir($this->getDataFolder());
         $this->config = new Config ($this->getDataFolder() . "config.yml" , Config::YAML, array(
@@ -28,7 +28,7 @@ class AdvertisingJail extends PluginBase implements Listener{
     }
 
     public function onDisable(){
-        $this->getLogger()->info("AdvertisingJail Stopped");
+        $this->getLogger()->info("AdvertisingCMD Stopped");
     }
     public function onChat(PlayerChatEvent $event){
         $player = $event->getPlayer();
