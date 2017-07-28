@@ -3,7 +3,6 @@
 namespace da123rrell\AdvertisingJail;
 
 use pocketmine\Player;
-use pocketmine\utils\Config;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
@@ -21,13 +20,15 @@ class AdvertisingCMD extends PluginBase implements Listener{
         $this->getLogger()->info("AdvertisingCMD Starterd");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         @mkdir($this->getDataFolder());
-        $this->config = new Config ($this->getDataFolder() . "config.yml" , Config::YAML, array(
-        "command" =>
-        ));
-        $this->saveResource("config.yml");
+        $this->config = new Config ($this->getDataFolder() . "config.yml" , Config::YAML);
+		$this->config->set("Command", ["commands"]);
+        $this->config->save();
     }
+	public function runCommand($cmd) {
 
-    public function onDisable(){
+    $this->getServer()->dispatchCommand(new ConsoleCommandSender(),$cmd);
+	}
+	public function onDisable(){
         $this->getLogger()->info("AdvertisingCMD Stopped");
     }
     public function onChat(PlayerChatEvent $event){
@@ -55,18 +56,6 @@ class AdvertisingCMD extends PluginBase implements Listener{
                 echo "[AdBlock]: Punished " . $playername . " For advertising ";
             }
         }
-    }
-    
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-                switch(strtolower($cmd->getName()){
-            case "crtv":
-                $sender->setGameMode(1);
-                break;
-            case "srvl":
-                $sender->setGameMode(0);
-                break;
-        }
-        return true;
     }
         
 }
