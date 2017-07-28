@@ -53,7 +53,7 @@ class AdvertisingCMD extends PluginBase implements Listener{
             {
                 $event->setCancelled(true);
                 $this->plugin->getServer()->dispatchCommand(new ConsoleCommandSender(), $this->config->get("command"));
-                echo "[AdBlock]: Punished " . $playername . " For advertising ";
+                $this->getLogger()->info("[AdBlock]: Punished " . $playername . " For saying: ". $message . " ========================\n");
             }
         }
     }
